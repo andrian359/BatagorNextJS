@@ -1,0 +1,63 @@
+/* Ubah 780px jika batas pergantian layout ingin diubah. */
+@media (max-width: 780px) {
+  
+  .hamburger { display: flex; }
+  .main-nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--clr-bg);
+    border-bottom: 1px solid var(--clr-border);
+    flex-direction: column; align-items: stretch;
+    padding: 0.75rem; gap: 0.35rem;
+    display: none;
+  }
+  .main-nav.open { display: flex; }
+  .nav-link { text-align: left; }
+  
+  .sejarah-about-inner, .sejarah-history-inner, .jenis-top { 
+    flex-direction: column; 
+  }
+
+  #kontak .section-inner > div {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .page {
+    padding: 2rem 1.25rem;
+  }
+  .preview-card {
+    padding: 1.25rem 1rem !important;
+  }
+  .page-title {
+    font-size: 1.75rem;
+  }
+  .hero-ornament {
+    height: auto;
+    margin-bottom: 0.85rem;
+  }
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+  .quiz-progress-row {
+    font-size: 0.8rem;
+  }
+}
+
+/* Ubah 480px untuk menentukan batas HP berukuran sempit. */
+@media (max-width: 480px) {
+  
+  .card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-media img[alt="Saus Kacang"] {
+    width: 130px !important;
+    height: 100px !important;
+    bottom: -10px !important;
+    right: -10px !important;
+  }
+  
+  .jenis-top-media img,
+  .about-media img[alt="Batagor Siap Saji"] {
+    max-height: 250px !important;
+  }
+}

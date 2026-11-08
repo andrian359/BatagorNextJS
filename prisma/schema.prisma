@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Content {
+  key    String @id
+  idText String @map("id_text")
+  enText String @map("en_text")
+
+  @@map("content")
+}
+
+model QuizQuestion {
+  id         Int          @id @default(autoincrement())
+  questionId String       @map("question_id")
+  questionEn String       @map("question_en")
+  answer     Int
+  options    QuizOption[]
+
+  @@map("quiz_questions")
+}
+
+model QuizOption {
+  questionId  Int          @map("question_id")
+  optionIndex Int          @map("option_index")
+  idText      String       @map("id_text")
+  enText      String       @map("en_text")
+  question    QuizQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@id([questionId, optionIndex])
+  @@map("quiz_options")
+}
