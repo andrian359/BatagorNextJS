@@ -7,7 +7,7 @@ const previews = [
     href: "/sejarah",
     img: "/images/batagor3.jpeg",
     size: 736,
-    alt: "Sejarah Batagor",
+    alt: "Ilustrasi sejarah Batagor di Bandung",
     title: { id: "Pengertian & Sejarah", en: "Definition & History" },
     text: {
       id: "Cari tahu arti nama Batagor dan bagaimana camilan legendaris ini pertama kali muncul di Bandung.",
@@ -46,24 +46,33 @@ export default function Beranda() {
     <section id="beranda" className="page active">
       <div className="hero">
         <div className="hero-inner">
-          <Image
-            className="hero-ornament"
-            src="/images/ornamen.svg"
-            alt=""
-            aria-hidden="true"
-            width={600}
-            height={80}
-            priority
-          />
-          <h1>
-            <C k="homeTitle" />
-          </h1>
-          <p>
-            <C k="homeIntro" />
-          </p>
-          <Link href="/sejarah" className="btn btn-primary">
-            <L id="Pelajari Pengertiannya" en="Learn the Definition" />
-          </Link>
+          <div className="hero-content">
+            <Image
+              className="hero-ornament"
+              src="/images/ornamen.svg"
+              alt=""
+              aria-hidden="true"
+              width={220}
+              height={30}
+              priority
+            />
+            <h1>
+              <C k="homeTitle" />
+            </h1>
+            <p>
+              <C k="homeIntro" />
+            </p>
+          </div>
+          <div className="hero-media">
+            <Image
+              className="hero-plate"
+              src="/images/piring-batagor.png"
+              alt="Sepiring Batagor Khas Bandung"
+              width={480}
+              height={470}
+              priority
+            />
+          </div>
         </div>
       </div>
 

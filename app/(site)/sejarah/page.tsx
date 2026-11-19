@@ -105,6 +105,9 @@ export default function Sejarah() {
               en="From a humble street snack, Batagor has grown into one of Indonesia's most recognized specialty snacks, now available in many variations and loved across generations."
             />
           </p>
+          <p>
+            <C k="HistoryAdd" />
+          </p>
         </div>
 
         <div className="history-timeline">

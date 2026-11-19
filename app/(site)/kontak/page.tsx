@@ -2,24 +2,38 @@
 
 import { L, useLang } from "../../components/LanguageProvider";
 
-const quickLinks = [
+const teamMembers = [
   {
-    href: "https://wa.me/6281234567890?text=Halo%20tim%20Batagor!",
-    icon: "💬",
-    name: "WhatsApp",
-    info: "Chat dengan admin",
+    nama: "Andrian",
+    icon: "👨🏻‍💻",
+    peran: {
+      id: "Mahasiswa Teknik Informatika",
+      en: "Computer Science Student",
+    },
   },
   {
-    href: "https://instagram.com/batagor.edu",
-    icon: "📸",
-    name: "Instagram",
-    info: "@batagor.edu",
+    nama: "Diana",
+    icon: "👩🏻‍💻",
+    peran: {
+      id: "Mahasiswi Teknik Informatika",
+      en: "Computer Science Student",
+    },
   },
   {
-    href: "mailto:halo@batagor-edu.id",
-    icon: "✉️",
-    name: "Email",
-    info: "halo@batagor-edu.id",
+    nama: "Ivan",
+    icon: "👨🏻‍💻",
+    peran: {
+      id: "Mahasiswa Teknik Informatika",
+      en: "Computer Science Student",
+    },
+  },
+  {
+    nama: "Kenny",
+    icon: "👨🏻‍💻",
+    peran: {
+      id: "Mahasiswa Teknik Informatika",
+      en: "Computer Science Student",
+    },
   },
 ];
 
@@ -27,7 +41,7 @@ export default function Kontak() {
   const { lang } = useLang();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // cegah halaman refresh
+    e.preventDefault();
     alert(
       lang === "id"
         ? "Terima kasih! Kritik dan saran kamu berhasil dikirim."
@@ -49,28 +63,26 @@ export default function Kontak() {
         </p>
 
         <div className="contact-grid">
-          {/* Kolom kiri: jalur cepat */}
-          <div className="contact-links">
+          {/* Kolom kiri: Tim Pengembang */}
+          <div className="contact-team">
             <h3 className="contact-heading">
-              <L id="Jalur Cepat" en="Quick Links" />
+              <L id="Tim Pengembang" en="Development Team" />
             </h3>
-            {quickLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
-                className="preview-card contact-link card"
-              >
-                <div className="contact-link-icon" aria-hidden="true">
-                  {link.icon}
+            <div className="contact-team-list">
+              {teamMembers.map((member) => (
+                <div key={member.nama} className="contact-team-card">
+                  <div className="contact-team-avatar" aria-hidden="true">
+                    {member.icon}
+                  </div>
+                  <div className="contact-team-info">
+                    <h4>{member.nama}</h4>
+                    <p>
+                      <L {...member.peran} />
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4>{link.name}</h4>
-                  <p>{link.info}</p>
-                </div>
-              </a>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Kolom kanan: form kritik & saran */}

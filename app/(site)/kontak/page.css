@@ -1,0 +1,143 @@
+.contact-inner {
+  max-width: 960px;
+  text-align: center;
+}
+.contact-intro {
+  color: var(--clr-text-soft);
+  margin-top: -1.5rem;
+  margin-bottom: 2.75rem;
+  font-size: 1.05rem;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.25rem;
+  text-align: left;
+  align-items: start;
+}
+
+.contact-heading {
+  font-size: 1.25rem;
+  margin-bottom: 0.85rem;
+  color: var(--clr-accent-dark);
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+/* ─── TIM PENGEMBANG (KOLOM KIRI) ─── */
+
+.contact-team {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contact-team-card {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(64, 42, 25, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-team-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--clr-accent-light, #e8b77a);
+  box-shadow: 0 6px 18px rgba(64, 42, 25, 0.1);
+}
+
+.contact-team-avatar {
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--clr-bg-soft);
+  flex-shrink: 0;
+  border: 1px solid var(--clr-border);
+}
+
+.contact-team-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact-team-info h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--clr-text);
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+.contact-team-info p {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  color: var(--clr-text-soft);
+  line-height: 1.4;
+}
+
+/* ─── FORM KRITIK & SARAN (KOLOM KANAN) ─── */
+
+.contact-form-box {
+  background: var(--clr-card);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-soft, 0 4px 16px rgba(64, 42, 25, 0.06));
+}
+.contact-form-box .contact-heading {
+  margin-bottom: 1.25rem;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+.contact-form label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--clr-text);
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--clr-border);
+  margin-top: 0.35rem;
+  font-family: inherit;
+  background: #fff;
+  outline-color: var(--clr-accent);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.95rem;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(198, 135, 74, 0.12);
+}
+.contact-form textarea {
+  resize: vertical;
+}
+.contact-form .btn-primary {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+}
+
+#kontak .page-title { position: relative; top: var(--posisi-kontak-judul); }
+#kontak .contact-intro { position: relative; top: var(--posisi-kontak-deskripsi); }
+#kontak .contact-grid { position: relative; top: var(--posisi-kontak-isi); }

@@ -1,0 +1,206 @@
+#sejarah {
+  position: relative;
+  overflow: hidden; 
+  background: var(
+    --clr-text
+  ); 
+}
+/* Ubah warna semua judul di halaman Pengertian/Sejarah di sini. */
+#sejarah h2,
+#sejarah h3 {
+  color: #fbf3e4;
+} 
+
+
+.corner-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 140px;
+  pointer-events: none;
+}
+
+
+.script-heading {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+/* Ubah posisi tulisan Pengertian di sini. */
+#sejarah .about-text {
+  transform: translateY(
+    calc(var(--posisi-pengertian) + var(--posisi-keduanya))
+  );
+}
+
+/* BAGIAN PENGERTIAN: gambar dan tulisan "Tentang Batagor" */
+.sejarah-about-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+.about-media,
+.about-text {
+  flex: 1 1 320px;
+}
+.about-media {
+  position: relative;
+  min-height: 260px;
+}
+.about-media .img-placeholder.primary {
+  transform: rotate(-3deg);
+}
+.about-media .img-placeholder.secondary {
+  position: absolute;
+  bottom: -18px;
+  right: -6px;
+  width: 58%;
+  transform: rotate(4deg);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+/* Ubah warna dan ukuran paragraf Pengertian di sini. */
+.about-text p {
+  color: #e9d9c2;
+}
+
+
+/* BAGIAN SEJARAH: tulisan sejarah dan timeline */
+.sejarah-history-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4.5rem;
+  position: relative;
+  z-index: 1;
+}
+.history-text,
+.history-timeline {
+  flex: 1 1 320px;
+}
+
+/* Ubah posisi timeline dengan mengubah --posisi-timeline di atas. */
+.history-timeline {
+  transform: translateY(var(--posisi-timeline));
+}
+
+/* Ubah posisi tulisan Sejarah dengan mengubah --posisi-sejarah di atas. */
+.history-text {
+  transform: translateY(
+    calc(var(--posisi-sejarah) + var(--posisi-keduanya))
+  );
+}
+/* Ubah warna dan ukuran paragraf Sejarah di sini. */
+.history-text p {
+  color: #e9d9c2;
+  margin-bottom: 1rem;
+}
+.history-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+.timeline-badge {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+.badge-circle {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  border: 4px double #fbf3e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.6rem;
+  font-size: 2.1rem;
+}
+.badge-year {
+  display: inline-block;
+  background: #fbf3e4;
+  color: var(--clr-text);
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+
+.timeline-track {
+  position: relative;
+  padding-left: 30px;
+  border-left: 3px dashed rgba(251, 243, 228, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.timeline-node {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.node-circle {
+  flex-shrink: 0;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    var(--clr-accent),
+    var(--clr-accent-dark)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+.node-label {
+  display: block;
+  color: #fbf3e4;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+.node-desc {
+  margin: 0;
+  color: #e9d9c2;
+  font-size: 0.85rem;
+}
+
+
+.about-media {
+  max-width: 380px;
+}
+.about-photo-main {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  transform: rotate(-3deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.about-photo-sauce {
+  position: absolute;
+  bottom: -15px;
+  right: -20px;
+  width: 180px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  transform: rotate(4deg);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
+  border: 4px solid #fbf3e4;
+}
+

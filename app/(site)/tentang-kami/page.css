@@ -1,0 +1,34 @@
+.center-text {
+  text-align: center;
+}
+.team-intro {
+  text-align: center;
+  color: var(--clr-text-soft);
+  max-width: 700px;
+  margin: -1.5rem auto 3rem;
+}
+.team-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.team-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+.team-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.team-card h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+.team-card p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--clr-text-soft);
+}
+
+
+#tentang-kami .page-title { position: relative; top: var(--posisi-tentang-judul); }
+#tentang-kami .team-intro { position: relative; top: var(--posisi-tentang-deskripsi); }
+#tentang-kami .team-grid { position: relative; top: var(--posisi-tentang-kartu); }

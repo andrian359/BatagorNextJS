@@ -1,0 +1,194 @@
+.jenis-top {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 4px 16px rgba(64, 42, 25, 0.06);
+  position: relative;
+  top: var(--posisi-jenis-utama);
+}
+.jenis-top-media {
+  flex: 0 0 420px;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.jenis-top-photo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(64, 42, 25, 0.12);
+  display: block;
+  transition: transform 0.3s ease;
+}
+.jenis-top-photo:hover {
+  transform: scale(1.02);
+}
+.jenis-top-text {
+  flex: 1 1 320px;
+}
+.jenis-top-badge {
+  display: inline-block;
+  background: var(--clr-bg-soft);
+  color: var(--clr-accent-dark);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--clr-border);
+  letter-spacing: 0.02em;
+}
+.jenis-top-text h3 {
+  font-size: 1.55rem;
+  margin-bottom: 0.85rem;
+  font-family: "Fraunces", serif;
+  color: var(--clr-text);
+  font-weight: 700;
+}
+.jenis-top-text p {
+  color: var(--clr-text-soft);
+  line-height: 1.75;
+  font-size: 1.02rem;
+  margin: 0;
+}
+
+.variant-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  top: var(--posisi-jenis-varian);
+}
+
+.sub-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+  font-family: "Fraunces", serif;
+  color: var(--clr-text);
+}
+.scroll-hint {
+  color: var(--clr-text-soft);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.variant-nav-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+.variant-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--clr-card);
+  border: 1.5px solid var(--clr-border);
+  color: var(--clr-text);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(64, 42, 25, 0.06);
+}
+.variant-nav-btn:hover {
+  background: var(--clr-accent);
+  color: #fff7ec;
+  border-color: var(--clr-accent);
+  transform: translateY(-2px);
+}
+
+.variant-scroll {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1.25rem;
+  position: relative;
+  top: var(--posisi-jenis-kartu);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* KUNCI: Tepat 4 kartu tanpa ada yang terpotong di desktop */
+.variant-card {
+  flex: 0 0 calc((100% - (3 * 1.25rem)) / 4);
+  width: calc((100% - (3 * 1.25rem)) / 4);
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.variant-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--clr-accent-light, #e8b77a);
+  box-shadow: 0 8px 20px rgba(64, 42, 25, 0.1);
+}
+
+.variant-card h4 {
+  font-size: 1.05rem;
+  margin: 0.85rem 0 0.4rem;
+  color: var(--clr-text);
+  font-family: "Fraunces", serif;
+}
+
+.variant-card p {
+  color: var(--clr-text-soft);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.variant-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.variant-scroll::-webkit-scrollbar-track {
+  background: var(--clr-bg-soft);
+  border-radius: 999px;
+}
+.variant-scroll::-webkit-scrollbar-thumb {
+  background: var(--clr-accent);
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .variant-card {
+    flex: 0 0 calc((100% - (2 * 1rem)) / 3);
+    width: calc((100% - (2 * 1rem)) / 3);
+  }
+}
+
+@media (max-width: 640px) {
+  .variant-card {
+    flex: 0 0 calc((100% - 0.85rem) / 2);
+    width: calc((100% - 0.85rem) / 2);
+  }
+}
+
+@media (max-width: 440px) {
+  .variant-card {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+#jenis .page-title { position: relative; top: var(--posisi-jenis-judul); }
+#jenis .jenis-top { position: relative; top: var(--posisi-jenis-utama); }
+#jenis .sub-title { position: relative; top: var(--posisi-jenis-varian); }
+#jenis .scroll-hint { position: relative; top: var(--posisi-jenis-varian); }
+#jenis .variant-scroll { position: relative; top: var(--posisi-jenis-kartu); }

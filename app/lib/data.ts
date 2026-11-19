@@ -1,4 +1,4 @@
-export type Bi = { id: string; en: string };
+export type Bi = { id: string; en: string;};
 
 export interface QuizQuestion {
   question: Bi;
@@ -23,8 +23,8 @@ export type ContentKey =
   | "aboutTitle"
   | "aboutIntro"
   | "historyTitle"
-  | "historyIntro";
-
+  | "historyIntro"  
+  | "HistoryAdd";
 export type RecipeKey = "tenggiri" | "ayam" | "saus-kacang";
 
 export const defaultQuestions: QuizQuestion[] = [
@@ -37,6 +37,7 @@ export const defaultQuestions: QuizQuestion[] = [
       {
         "id": "Bakso Tahu Goreng",
         "en": "Fried Tofu Fish Balls"
+
       },
       {
         "id": "Bakwan Tahu Goreng",
@@ -156,9 +157,10 @@ export const defaultQuestions: QuizQuestion[] = [
 ];
 
 export const defaultContent: Record<ContentKey, Bi> = {
+  // tulisan "Selamat Datang di Dunia Batagor!" untuk halaman beranda
   "homeTitle": {
-    "id": "Selamat Datang di Dunia Batagor!",
-    "en": "Welcome to the World of Batagor!"
+    "id": "Selamat Datang di Batagor Edu!",
+    "en": "Welcome to Batagor Edu!"
   },
   "homeIntro": {
     "id": "Jelajahi pengertian, sejarah, jenis, hingga cara membuat Batagor, jajanan gurih khas Bandung yang kini digemari di banyak kota.",
@@ -179,6 +181,10 @@ export const defaultContent: Record<ContentKey, Bi> = {
   "historyIntro": {
     "id": "Batagor pertama kali muncul di Bandung, Jawa Barat, sekitar akhir tahun 1970-an. Camilan ini tercipta dari kreativitas pedagang bakso tahu yang menggoreng dagangan yang tidak habis terjual agar bisa disajikan kembali keesokan harinya.",
     "en": "Batagor first appeared in Bandung, West Java, around the late 1970s. It was created by tofu fish ball vendors who fried their unsold stock so it could be served again the next day."
+  },
+  "HistoryAdd": {
+    "id": "Tambahan Sejarah",
+    "en": "Additional History"
   }
 };
 

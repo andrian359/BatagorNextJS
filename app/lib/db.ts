@@ -77,7 +77,7 @@ async function replaceQuestionsInDatabase(questions: QuizQuestion[]) {
 
   for (const question of questions) {
     if (
-      question.options.length !== 4 ||
+      question.options.length !== 4||
       question.answer < 0 ||
       question.answer > 3 ||
       !question.question.id.trim() ||

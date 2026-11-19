@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const metadata: Metadata = {
-  title: "Batagor. | Website Edukasi Batagor",
+  title: "Batagor edu. | pusat pembelajaran Batagor",
   description:
     "Website edukasi tentang Batagor: pengertian, sejarah, jenis, dan cara membuatnya.",
 };

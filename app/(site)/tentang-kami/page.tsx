@@ -11,7 +11,7 @@ export default function TentangKami() {
   return (
     <section id="tentang-kami" className="page active">
       <div className="section-inner">
-        <h2 className="page-title center-text">
+        <h2 className="page-title center-text" style={{ textAlign: "center" }}>
           <L id="Tim di Balik Layar" en="The Team Behind the Screen" />
         </h2>
         <p className="team-intro">

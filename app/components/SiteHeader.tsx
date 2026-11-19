@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -11,13 +12,13 @@ const navLinks = [
   { href: "/jenis", id: "Jenis", en: "Types" },
   { href: "/cara-bikin", id: "Cara Bikin", en: "How to Make" },
   { href: "/kuis", id: "Kuis", en: "Quiz" },
-  { href: "/tentang-kami", id: "Tentang Kami", en: "About Us" },
   { href: "/kontak", id: "Kontak", en: "Contact" },
 ];
 
 export default function SiteHeader() {
   const pathname = usePathname();
   const { lang, setLang } = useLang();
+
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -30,15 +31,20 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="logo">
-        Batagor<span className="logo-dot">.</span>
+        Batagoredu<span className="logo-dot">.</span>
       </div>
 
-      <nav className={`main-nav ${menuOpen ? "open" : ""}`} id="mainNav">
+      <nav
+        className={`main-nav ${menuOpen ? "open" : ""}`}
+        id="mainNav"
+      >
         {navLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className={`nav-link ${pathname === link.href ? "active" : ""}`}
+            className={`nav-link ${
+              pathname === link.href ? "active" : ""
+            }`}
             onClick={() => setMenuOpen(false)}
           >
             <L id={link.id} en={link.en} />
@@ -47,6 +53,8 @@ export default function SiteHeader() {
       </nav>
 
       <div className="header-right">
+
+        {/* Tombol pergantian bahasa */}
         <button
           id="langToggle"
           className="lang-toggle"
@@ -57,11 +65,17 @@ export default function SiteHeader() {
           <span className={`lang-option ${lang === "id" ? "active" : ""}`}>
             ID
           </span>
+
           <span className="lang-sep">|</span>
+
           <span className={`lang-option ${lang === "en" ? "active" : ""}`}>
             EN
           </span>
         </button>
+
+
+
+        {/* Tombol hamburger */}
         <button
           id="hamburger"
           className="hamburger"
@@ -74,6 +88,7 @@ export default function SiteHeader() {
           <span></span>
           <span></span>
         </button>
+
       </div>
     </header>
   );

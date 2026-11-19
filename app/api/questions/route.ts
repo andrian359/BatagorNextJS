@@ -11,7 +11,7 @@ export async function GET() {
 export async function PUT(request: Request) {
   try {
     const questions = (await request.json()) as QuizQuestion[];
-    console.log("Dapet request save kuis nih bos, total soal:", questions.length);  
+    console.log("Dapet request save kuis nih bos, total soal:", questions.length);
     await replaceQuestions(questions);
     return NextResponse.json(await readQuestions());
   } catch (error) {
@@ -19,5 +19,3 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: "Gagal nyimpen ke database" }, { status: 500 });
   }
 }
-
-

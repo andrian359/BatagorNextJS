@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
 import { L } from "../../components/LanguageProvider";
 import type { Bi } from "../../lib/data";
 
@@ -78,9 +81,32 @@ const variants: Variant[] = [
       en: "Made in small, bite-sized portions like cocktail snacks, perfect for parties or casual gatherings.",
     },
   },
+  {
+    img: "/images/wawaw.webp",
+    w: 388,
+    h: 388,
+    alt: "Batagor Ujian",
+    title: { id: "Batagor Ujian", en: "Test Batagor" },
+    text: {
+      id: "Dibuat dalam ukuran kecil seperti cocktail, cocok sebagai camilan pesta atau teman arisan.",
+      en: "Made in small, bite-sized portions like cocktail snacks, perfect for parties or casual gatherings.",
+    },
+  },
 ];
 
 export default function Jenis() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = scrollRef.current.clientWidth;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section id="jenis" className="page active">
       <div className="section-inner">
@@ -92,14 +118,18 @@ export default function Jenis() {
           <div className="jenis-top-media">
             <Image
               className="jenis-top-photo"
-              src="/images/original.jpeg"
+              src="/images/batagor-original.jpeg"
               alt="Batagor Goreng Klasik"
-              width={680}
-              height={964}
-              sizes="240px"
+              width={520}
+              height={367}
+              sizes="(max-width: 768px) 100vw, 440px"
+              priority
             />
           </div>
           <div className="jenis-top-text">
+            <span className="jenis-top-badge">
+              <L id="Varian Utama" en="Main Variant" />
+            </span>
             <h3>
               <L id="Batagor Goreng (Original)" en="Fried Batagor (Original)" />
             </h3>
@@ -112,17 +142,39 @@ export default function Jenis() {
           </div>
         </div>
 
-        <h3 className="sub-title">
-          <L id="Varian Lainnya" en="Other Variants" />
-        </h3>
-        <p className="scroll-hint">
-          <L
-            id="Geser ke samping untuk melihat varian lainnya."
-            en="Swipe sideways to see more variants."
-          />
-        </p>
+        <div className="variant-header-row">
+          <div>
+            <h3 className="sub-title">
+              <L id="Varian Lainnya" en="Other Variants" />
+            </h3>
+            <p className="scroll-hint">
+              <L
+                id="Geser ke samping untuk melihat varian lainnya."
+                en="Swipe sideways to see more variants."
+              />
+            </p>
+          </div>
+          <div className="variant-nav-btns">
+            <button
+              type="button"
+              className="variant-nav-btn"
+              aria-label="Geser ke kiri"
+              onClick={() => scroll("left")}
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              className="variant-nav-btn"
+              aria-label="Geser ke kanan"
+              onClick={() => scroll("right")}
+            >
+              →
+            </button>
+          </div>
+        </div>
 
-        <div className="variant-scroll">
+        <div className="variant-scroll" ref={scrollRef}>
           {variants.map((v) => (
             <div className="variant-card" key={v.alt}>
               <Image

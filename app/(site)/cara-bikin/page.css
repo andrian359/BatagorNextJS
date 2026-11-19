@@ -1,0 +1,115 @@
+.section-intro {
+  color: var(--clr-text-soft);
+  margin-top: -1.5rem;
+  margin-bottom: 2.5rem;
+}
+#cara-bikin .section-intro {
+  position: relative;
+  top: var(--posisi-cara-bikin-deskripsi);
+}
+#quiz .section-intro {
+  position: relative;
+  top: var(--posisi-kuis-deskripsi);
+}
+#tentang-kami .team-intro {
+  position: relative;
+  top: var(--posisi-tentang-deskripsi);
+}
+#kontak .contact-intro {
+  position: relative;
+  top: var(--posisi-kontak-deskripsi);
+}
+.recipe-select-row {
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  position: relative;
+  top: var(--posisi-cara-bikin-resep);
+}
+.recipe-card {
+  flex: 1 1 230px;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+.recipe-card h3 {
+  font-size: 1.15rem;
+  margin: 1rem 0 0.5rem;
+}
+.recipe-card p {
+  color: var(--clr-text-soft);
+  font-size: 0.95rem;
+}
+
+
+.step-phase-title {
+  margin-bottom: 1.75rem;
+  position: relative;
+  top: var(--posisi-cara-bikin-langkah);
+}
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  position: relative;
+  top: var(--posisi-cara-bikin-kartu-langkah);
+}
+.step-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  color: #fff7ec;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.step-card h4 {
+  font-size: 1.02rem;
+  margin-bottom: 0.4rem;
+}
+.step-card p {
+  color: var(--clr-text-soft);
+  font-size: 0.9rem;
+}
+
+
+.thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.thumb-sm {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.85rem;
+}
+
