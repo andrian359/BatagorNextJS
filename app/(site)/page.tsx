@@ -1,6 +1,16 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { C, L } from "../components/LanguageProvider";
+
+const heroPlates = [
+  { src: "/images/piring-batagor.png", alt: "Sepiring Batagor Khas Bandung" },
+  { src: "/images/piring-batagor2.jpeg", alt: "Batagor Saus Kacang & Kerupuk" },
+  { src: "/images/piring-batagor3.jpeg", alt: "Batagor Kuah Hangat" },
+  { src: "/images/piring-batagor4.jpeg", alt: "Batagor Alas Daun Pisang" },
+];
 
 const previews = [
   {
@@ -42,6 +52,16 @@ const previews = [
 ];
 
 export default function Beranda() {
+  const [plateIndex, setPlateIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPlateIndex((prev) => (prev + 1) % heroPlates.length);
+    }, 1500);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="beranda" className="page active">
       <div className="hero">
@@ -64,14 +84,19 @@ export default function Beranda() {
             </p>
           </div>
           <div className="hero-media">
-            <Image
-              className="hero-plate"
-              src="/images/piring-batagor.png"
-              alt="Sepiring Batagor Khas Bandung"
-              width={480}
-              height={470}
-              priority
-            />
+            <div className="hero-plate-wrap">
+              {heroPlates.map((plate, i) => (
+                <Image
+                  key={plate.src}
+                  className={`hero-plate ${i === plateIndex ? "active" : ""}`}
+                  src={plate.src}
+                  alt={plate.alt}
+                  width={480}
+                  height={470}
+                  priority={i === 0}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

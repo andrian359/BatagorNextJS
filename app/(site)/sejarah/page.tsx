@@ -106,7 +106,10 @@ export default function Sejarah() {
             />
           </p>
           <p>
-            <C k="HistoryAdd" />
+            <L
+              id="Di balik kelezatannya, Batagor juga mencerminkan akulturasi kuliner Tionghoa dan Sunda di Bandung. Teknik pembuatan bakso tahu dan siomay khas Tionghoa berpadu harmonis dengan bumbu kacang serta kecap manis yang akrab di lidah masyarakat lokal."
+              en="Behind its delicious taste, Batagor also reflects the culinary acculturation of Chinese and Sundanese influences in Bandung. Traditional Chinese fish paste and tofu dumpling techniques blend harmoniously with peanut sauce and sweet soy sauce beloved by locals."
+            />
           </p>
         </div>
 
