@@ -1,11 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ══════════════════════════════════════════════════════════
+   GLOBAL STYLE (style.css)
+   Berlaku untuk seluruh website: Tema Warna, Reset, & Layout
+   ══════════════════════════════════════════════════════════ */
 
+/* ─── 1. TEMA WARNA & VARIABEL DESAIN (:root) ─── */
 :root {
-  
+  /* Palet Warna */
   --clr-bg: #fbf3e4;
   --clr-bg-soft: #f1e1c4;
   --clr-card: #fffdf8;
@@ -15,50 +15,19 @@
   --clr-accent-dark: #a66b32;
   --clr-border: #e7d2ac;
 
-  
+  /* Ukuran & Efek */
   --radius-lg: 20px;
   --radius-md: 12px;
-  
   --shadow-soft: 0 6px 20px rgba(64, 42, 25, 0.1);
-  
   --max-width: 1100px;
-
-  --posisi-pengertian: 0px;
-  --posisi-sejarah: 0px;
-  --posisi-keduanya: 60px;
-  --posisi-timeline: -100px;
-
-  --posisi-beranda-judul: 0px;
-  --posisi-beranda-deskripsi: 0px;
-  --posisi-beranda-tombol: 0px;
-  --posisi-beranda-kartu: 0px;
-
-  --posisi-jenis-judul: 0px;
-  --posisi-jenis-utama: 0px;
-  --posisi-jenis-varian: 0px;
-  --posisi-jenis-kartu: 0px;
-
-  --posisi-cara-bikin-judul: 0px;
-  --posisi-cara-bikin-deskripsi: 0px;
-  --posisi-cara-bikin-resep: 0px;
-  --posisi-cara-bikin-langkah: 0px;
-  --posisi-cara-bikin-kartu-langkah: 0px;
-
-  --posisi-kuis-judul: 0px;
-  --posisi-kuis-deskripsi: 0px;
-  --posisi-kuis-panel: 0px;
-  --posisi-kuis-isi: 0px;
-
-  --posisi-tentang-judul: 0px;
-  --posisi-tentang-deskripsi: 0px;
-  --posisi-tentang-kartu: 0px;
-
-  --posisi-kontak-judul: 0px;
-  --posisi-kontak-deskripsi: 0px;
-  --posisi-kontak-isi: 0px;
 }
 
-/* BERLAKU UNTUK SELURUH WEBSITE PUBLIK */
+/* ─── 2. RESET & PENGATURAN DASAR ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -98,177 +67,34 @@ button {
   background: none;
   color: inherit;
 }
-img,
-.img-placeholder {
+
+img {
   max-width: 100%;
   display: block;
 }
+
 :focus-visible {
   outline: 3px solid var(--clr-accent);
   outline-offset: 3px;
 }
 
+/* ─── 3. STRUKTUR LAYOUT & CONTAINER ─── */
 .section-inner {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 3.5rem 1.5rem;
 }
+
 .page-title {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   margin-bottom: 2.5rem;
-}
-#jenis .page-title {
-  position: relative;
-  top: var(--posisi-jenis-judul);
-}
-#cara-bikin .page-title {
-  position: relative;
-  top: var(--posisi-cara-bikin-judul);
-}
-#quiz .page-title {
-  position: relative;
-  top: var(--posisi-kuis-judul);
-}
-#tentang-kami .page-title {
-  position: relative;
-  top: var(--posisi-tentang-judul);
-}
-#kontak .page-title {
-  position: relative;
-  top: var(--posisi-kontak-judul);
 }
 
 .hidden {
   display: none !important;
 }
 
-
-.img-placeholder {
-  background: linear-gradient(
-    145deg,
-    var(--clr-accent),
-    var(--clr-accent-dark)
-  );
-  border-radius: var(--radius-md);
-  min-height: 220px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-}
-.img-placeholder span {
-  color: #fff7ec;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-.img-placeholder.large-img {
-  min-height: 320px;
-}
-.img-placeholder.small-img {
-  min-height: 140px;
-}
-
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--clr-text);
-  border-bottom: 2px solid var(--clr-accent);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.75rem;
-}
-.logo {
-  font-family: "Fraunces", serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  white-space: nowrap;
-  color: #fff7ec;
-}
-.logo .logo-dot {
-  color: var(--clr-accent);
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.nav-link {
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff7ec;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-  white-space: nowrap;
-}
-.nav-link:hover {
-  background: transparent;
-  color: #e6a96b;
-}
-.nav-link.active {
-  background: var(--clr-accent-dark);
-  color: #fff7ec;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.15rem;
-  padding: 0.2rem;
-  background: rgba(255, 247, 236, 0.12);
-  border: 1px solid rgba(231, 210, 172, 0.4);
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.lang-option {
-  color: rgba(255, 247, 236, 0.75);
-  padding: 0.28rem 0.65rem;
-  border-radius: 999px;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-.lang-option.active {
-  background: var(--clr-accent);
-  color: #fff7ec;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.lang-sep {
-  display: none;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  padding: 0.4rem;
-}
-.hamburger span {
-  width: 22px;
-  height: 2px;
-  background: #fff7ec;
-  border-radius: 2px;
-}
-
-
+/* ─── 4. TOMBOL GLOBAL ─── */
 .btn-primary {
   display: inline-block;
   background: var(--clr-accent);
@@ -280,6 +106,7 @@ img,
     background 0.2s ease,
     transform 0.2s ease;
 }
+
 .btn-primary:hover {
   background: var(--clr-accent-dark);
   transform: translateY(-1px);
@@ -293,6 +120,7 @@ img,
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s ease;
 }
+
 .card-link:hover {
   border-color: var(--clr-accent-dark);
 }
@@ -307,14 +135,16 @@ img,
   padding: 0.5rem 0;
 }
 
-
+/* ─── 5. SISTEM TRANSISI HALAMAN & KARTU ─── */
 .page {
   display: none;
 }
+
 .page.active {
   display: block;
   animation: pageEnter 0.45s ease both;
 }
+
 @keyframes pageEnter {
   from {
     opacity: 0;
@@ -325,14 +155,6 @@ img,
     transform: translateY(0);
   }
 }
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 .page.active .preview-card,
 .page.active .recipe-card,
@@ -340,24 +162,28 @@ img,
 .page.active .step-card {
   animation: contentRise 0.55s ease backwards;
 }
+
 .page.active .preview-card:nth-child(2),
 .page.active .recipe-card:nth-child(2),
 .page.active .variant-card:nth-child(2),
 .page.active .step-card:nth-child(2) {
   animation-delay: 0.08s;
 }
+
 .page.active .preview-card:nth-child(3),
 .page.active .recipe-card:nth-child(3),
 .page.active .variant-card:nth-child(3),
 .page.active .step-card:nth-child(3) {
   animation-delay: 0.16s;
 }
+
 .page.active .preview-card:nth-child(4),
 .page.active .recipe-card:nth-child(4),
 .page.active .variant-card:nth-child(4),
 .page.active .step-card:nth-child(4) {
   animation-delay: 0.24s;
 }
+
 @keyframes contentRise {
   from {
     opacity: 0;
@@ -367,81 +193,4 @@ img,
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-
-.site-footer {
-  margin-top: auto;
-  background: var(--clr-text);
-  border-top: 2px solid var(--clr-accent);
-  text-align: center;
-  padding: 2rem 1.5rem 2.25rem;
-  color: #fff7ec;
-  font-size: 0.9rem;
-}
-.site-footer::before {
-  content: "";
-  display: block;
-  width: min(100%, 760px);
-  height: 60px;
-  margin: -0.5rem auto 1.5rem;
-  background: url("/images/ornamen.svg") center / contain no-repeat;
-  opacity: 0.6;
-}
-.site-footer p {
-  margin: 0.2rem 0;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.footer-link-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.9rem;
-  background: rgba(255, 247, 236, 0.08);
-  border: 1px solid rgba(231, 210, 172, 0.22);
-  padding: 0.8rem 1.35rem;
-  border-radius: var(--radius-md);
-  color: #fff7ec;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  min-width: 200px;
-}
-
-.footer-link-item:hover {
-  background: rgba(198, 135, 74, 0.25);
-  border-color: var(--clr-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  color: #fff7ec;
-}
-
-.footer-link-icon {
-  font-size: 1.6rem;
-  line-height: 1;
-}
-
-.footer-link-text {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.footer-link-name {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #fff7ec;
-}
-
-.footer-link-info {
-  font-size: 0.8rem;
-  color: #d8c2ad;
 }

@@ -23,8 +23,8 @@
 }
 
 .hero-ornament {
-  width: auto;
-  max-width: 240px;
+  width: 100%;
+  max-width: 460px;
   height: auto;
   margin-bottom: 1.25rem;
   display: block;

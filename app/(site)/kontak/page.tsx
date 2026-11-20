@@ -1,41 +1,7 @@
 "use client";
 
 import { L, useLang } from "../../components/LanguageProvider";
-
-const teamMembers = [
-  {
-    nama: "Andrian",
-    icon: "👨🏻‍💻",
-    peran: {
-      id: "Mahasiswa Teknik Informatika",
-      en: "Computer Science Student",
-    },
-  },
-  {
-    nama: "Diana",
-    icon: "👩🏻‍💻",
-    peran: {
-      id: "Mahasiswi Teknik Informatika",
-      en: "Computer Science Student",
-    },
-  },
-  {
-    nama: "Ivan",
-    icon: "👨🏻‍💻",
-    peran: {
-      id: "Mahasiswa Teknik Informatika",
-      en: "Computer Science Student",
-    },
-  },
-  {
-    nama: "Kenny",
-    icon: "👨🏻‍💻",
-    peran: {
-      id: "Mahasiswa Teknik Informatika",
-      en: "Computer Science Student",
-    },
-  },
-];
+import { teamMembers } from "./data";
 
 export default function Kontak() {
   const { lang } = useLang();

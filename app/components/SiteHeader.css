@@ -1,0 +1,113 @@
+/* ══════════════════════════════════════════════════════════
+   HEADER & NAVBAR (SiteHeader.css)
+   Semua styling navigasi atas, logo, dan menu bahasa
+   ══════════════════════════════════════════════════════════ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--clr-text);
+  border-bottom: 2px solid var(--clr-accent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+}
+
+/* Logo Batagoredu */
+.logo {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #fff7ec;
+}
+
+.logo .logo-dot {
+  color: var(--clr-accent);
+}
+
+/* Menu Navigasi */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff7ec;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background: transparent;
+  color: #e6a96b;
+}
+
+.nav-link.active {
+  background: var(--clr-accent-dark);
+  color: #fff7ec;
+}
+
+/* Navigasi Kanan & Pilihan Bahasa */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.2rem;
+  background: rgba(255, 247, 236, 0.12);
+  border: 1px solid rgba(231, 210, 172, 0.4);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.lang-option {
+  color: rgba(255, 247, 236, 0.75);
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.lang-option.active {
+  background: var(--clr-accent);
+  color: #fff7ec;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.lang-sep {
+  display: none;
+}
+
+/* Tombol Hamburger (Mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.4rem;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #fff7ec;
+  border-radius: 2px;
+}

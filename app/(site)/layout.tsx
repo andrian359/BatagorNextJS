@@ -2,6 +2,8 @@
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import "./style.css";
+import "../components/SiteHeader.css";
+import "../components/SiteFooter.css";
 import "./responsive.css";
 import "./beranda/page.css";
 

@@ -1,0 +1,84 @@
+/* ══════════════════════════════════════════════════════════
+   FOOTER & JALUR CEPAT (SiteFooter.css)
+   Semua styling footer bawah, ornamen, dan link kontak
+   ══════════════════════════════════════════════════════════ */
+
+.site-footer {
+  margin-top: auto;
+  background: var(--clr-text);
+  border-top: 2px solid var(--clr-accent);
+  text-align: center;
+  padding: 2rem 1.5rem 2.25rem;
+  color: #fff7ec;
+  font-size: 0.9rem;
+}
+
+/* Ornamen Flourish Pita di Atas Footer */
+.site-footer::before {
+  content: "";
+  display: block;
+  width: min(100%, 760px);
+  height: 60px;
+  margin: -0.5rem auto 1.5rem;
+  background: url("/images/ornamen.svg") center / contain no-repeat;
+  opacity: 0.6;
+}
+
+.site-footer p {
+  margin: 0.2rem 0;
+}
+
+/* Kontainer Link Kontak / Jalur Cepat */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: rgba(255, 247, 236, 0.08);
+  border: 1px solid rgba(231, 210, 172, 0.22);
+  padding: 0.8rem 1.35rem;
+  border-radius: var(--radius-md);
+  color: #fff7ec;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  min-width: 200px;
+}
+
+.footer-link-item:hover {
+  background: rgba(198, 135, 74, 0.25);
+  border-color: var(--clr-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  color: #fff7ec;
+}
+
+.footer-link-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.footer-link-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer-link-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff7ec;
+}
+
+.footer-link-info {
+  font-size: 0.8rem;
+  color: #d8c2ad;
+}
