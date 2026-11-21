@@ -194,3 +194,13 @@ img {
     transform: translateY(0);
   }
 }
+
+/* Hilangkan border biru bawaan Bootstrap (.btn-primary) pada tombol */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

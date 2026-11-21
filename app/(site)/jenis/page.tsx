@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { L } from "../../components/LanguageProvider";
 import { featuredVariant, variants } from "./data";
 
@@ -15,6 +15,35 @@ export default function Jenis() {
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
       });
+    }
+  };
+
+  // 1. Navigasi pakai tombol panah kiri & kanan di keyboard
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        scroll("left");
+      } else if (e.key === "ArrowRight") {
+        scroll("right");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // 2. Klik area kiri slider -> geser kiri, klik area kanan -> geser kanan
+  const handleSliderClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Biar nggak ikut kegeser kalau user lagi nge-blok teks
+    if (window.getSelection()?.toString()) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+
+    if (clickX < rect.width / 2) {
+      scroll("left");
+    } else {
+      scroll("right");
     }
   };
 
@@ -82,7 +111,12 @@ export default function Jenis() {
           </div>
         </div>
 
-        <div className="variant-scroll" ref={scrollRef}>
+        <div
+          className="variant-scroll"
+          ref={scrollRef}
+          onClick={handleSliderClick}
+          style={{ cursor: "pointer" }}
+        >
           {variants.map((v) => (
             <div className="variant-card" key={v.alt}>
               <Image

@@ -93,18 +93,99 @@ const contentGroups: {
 
 const subscribeNoop = () => () => {};
 
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "batagor123"; // Bebas ganti password di sini
+
 export default function AdminPage() {
   const isBrowser = useSyncExternalStore(
     subscribeNoop,
     () => true,
     () => false,
   );
-  return isBrowser ? <AdminEditor /> : null;
+  const [loggedIn, setLoggedIn] = useState<boolean>(() =>
+    typeof window !== "undefined" &&
+    sessionStorage.getItem("batagor_admin_auth") === "true",
+  );
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+
+  if (!isBrowser) return null;
+
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (username.trim() === ADMIN_USER && password === ADMIN_PASS) {
+      sessionStorage.setItem("batagor_admin_auth", "true");
+      setLoggedIn(true);
+      setLoginError("");
+    } else {
+      setLoginError("Username atau password salah.");
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("batagor_admin_auth");
+    setLoggedIn(false);
+    setUsername("");
+    setPassword("");
+  };
+
+  if (!loggedIn) {
+    return (
+      <div className="login-page">
+        <form className="login-card" onSubmit={handleLogin}>
+          <div className="login-brand">
+            Batagor<small>Pengelola</small>
+          </div>
+          <h1>Masuk Admin</h1>
+          <p className="login-subtitle">
+            Silakan masuk untuk mengelola soal kuis dan konten situs.
+          </p>
+
+          <label className="field-label">
+            Username
+            <input
+              type="text"
+              required
+              autoFocus
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Masukkan username"
+            />
+          </label>
+
+          <label className="field-label">
+            Password
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Masukkan password"
+            />
+          </label>
+
+          {loginError && <p className="login-error">{loginError}</p>}
+
+          <button className="button-primary login-submit" type="submit">
+            Masuk
+          </button>
+
+          <Link className="login-back" href="/">
+            ← Kembali ke situs utama
+          </Link>
+        </form>
+      </div>
+    );
+  }
+
+  return <AdminEditor onLogout={handleLogout} />;
 }
 
-function AdminEditor() {
+function AdminEditor({ onLogout }: { onLogout: () => void }) {
   const [view, setView] = useState<View>("overview");
   const [storageOk, setStorageOk] = useState<boolean>(true);
+  const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
 
   const [questions, setQuestions] = useState<QuizQuestion[]>(loadQuestions);
   const [editingIndex, setEditingIndex] = useState<number>(0);
@@ -293,6 +374,9 @@ function AdminEditor() {
         <Link className="back-to-site" href="/">
           Buka situs
         </Link>
+        <button className="logout-button" type="button" onClick={() => setShowLogoutModal(true)}>
+          Keluar
+        </button>
       </aside>
 
       <main className="admin-main">
@@ -332,7 +416,7 @@ function AdminEditor() {
               <small>Indonesia & Inggris</small>
             </div>
           </div>
-          
+
           <section className="overview-quick">
             <h2>Pengelolaan</h2>
             <div className="quick-grid">
@@ -608,6 +692,44 @@ function AdminEditor() {
           </form>
         </section>
       </main>
+      {showLogoutModal && (
+        <div
+          className="modal-backdrop"
+          onClick={() => setShowLogoutModal(false)}
+        >
+          <div
+            className="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="logout-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 id="logout-modal-title">Keluar dari Admin?</h2>
+            <p>
+              Apakah Anda yakin ingin keluar dari halaman pengelola Batagor?
+            </p>
+            <div className="modal-actions">
+              <button
+                className="button-secondary"
+                type="button"
+                onClick={() => setShowLogoutModal(false)}
+              >
+                Batal
+              </button>
+              <button
+                className="button-logout-confirm"
+                type="button"
+                onClick={() => {
+                  setShowLogoutModal(false);
+                  onLogout();
+                }}
+              >
+                Ya, Keluar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
