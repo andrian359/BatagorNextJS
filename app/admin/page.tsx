@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { Fragment, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { Bi, ContentKey, QuizQuestion } from "../lib/data";
 import {
@@ -614,62 +614,75 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
           hidden={view !== "content"}
         >
           <form className="content-form" onSubmit={handleSaveContent}>
-            {contentGroups.map((group) => (
-              <section className="content-group" key={group.titleKey}>
-                <div className="content-group-heading">
-                  <div>
-                    <h3>{group.title}</h3>
-                    <p>{group.caption}</p>
-                  </div>
-                </div>
-                <div className="language-fields">
-                  <label className="field-label">
-                    Judul <span>ID</span>
-                    <input
-                      required
-                      value={content[group.titleKey].id}
-                      onChange={(e) =>
-                        updateContent(group.titleKey, "id", e.target.value)
-                      }
-                    />
-                  </label>
-                  <label className="field-label">
-                    Title <span>EN</span>
-                    <input
-                      required
-                      value={content[group.titleKey].en}
-                      onChange={(e) =>
-                        updateContent(group.titleKey, "en", e.target.value)
-                      }
-                    />
-                  </label>
-                </div>
-                <div className="language-fields">
-                  <label className="field-label">
-                    {group.bodyLabel.id} <span>ID</span>
-                    <textarea
-                      rows={group.bodyRows}
-                      required
-                      value={content[group.bodyKey].id}
-                      onChange={(e) =>
-                        updateContent(group.bodyKey, "id", e.target.value)
-                      }
-                    />
-                  </label>
-                  <label className="field-label">
-                    {group.bodyLabel.en} <span>EN</span>
-                    <textarea
-                      rows={group.bodyRows}
-                      required
-                      value={content[group.bodyKey].en}
-                      onChange={(e) =>
-                        updateContent(group.bodyKey, "en", e.target.value)
-                      }
-                    />
-                  </label>
-                </div>
-              </section>
-            ))}
+            <div className="content-table-wrap">
+              <table className="content-table">
+                <thead>
+                  <tr>
+                    <th>Bagian</th>
+                    <th>Bahasa Indonesia (ID)</th>
+                    <th>English (EN)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {contentGroups.map((group) => (
+                    <Fragment key={group.titleKey}>
+                      <tr>
+                        <td className="content-table-label">
+                          <strong>{group.title}</strong>
+                          <small>Judul / Title</small>
+                        </td>
+                        <td>
+                          <input
+                            required
+                            value={content[group.titleKey].id}
+                            onChange={(e) =>
+                              updateContent(group.titleKey, "id", e.target.value)
+                            }
+                          />
+                        </td>
+                        <td>
+                          <input
+                            required
+                            value={content[group.titleKey].en}
+                            onChange={(e) =>
+                              updateContent(group.titleKey, "en", e.target.value)
+                            }
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="content-table-label">
+                          <strong>{group.title}</strong>
+                          <small>
+                            {group.bodyLabel.id} / {group.bodyLabel.en}
+                          </small>
+                        </td>
+                        <td>
+                          <textarea
+                            rows={group.bodyRows}
+                            required
+                            value={content[group.bodyKey].id}
+                            onChange={(e) =>
+                              updateContent(group.bodyKey, "id", e.target.value)
+                            }
+                          />
+                        </td>
+                        <td>
+                          <textarea
+                            rows={group.bodyRows}
+                            required
+                            value={content[group.bodyKey].en}
+                            onChange={(e) =>
+                              updateContent(group.bodyKey, "en", e.target.value)
+                            }
+                          />
+                        </td>
+                      </tr>
+                    </Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div> 
 
             <div className="form-actions content-actions">
               <p
