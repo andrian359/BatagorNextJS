@@ -303,7 +303,7 @@ function AdminEditor() {
             role="status"
           >
             <i aria-hidden="true"></i>
-            <span className="visually-hidden">
+            <span>
               {storageOk
                 ? " Terhubung ke database"
                 : " Penyimpanan database bermasalah"}
@@ -315,6 +315,24 @@ function AdminEditor() {
           className={`admin-view ${view === "overview" ? "active" : ""}`}
           hidden={view !== "overview"}
         >
+          <div className="stats-grid">
+            <div className="stat-card">
+              <span className="stat-label">Total Soal Kuis</span>
+              <strong className="stat-value">{questions.length}</strong>
+              <small>Pertanyaan aktif (ID & EN)</small>
+            </div>
+            <div className="stat-card">
+              <span className="stat-label">Bagian Konten</span>
+              <strong className="stat-value">{contentGroups.length}</strong>
+              <small>Halaman utama dikelola</small>
+            </div>
+            <div className="stat-card">
+              <span className="stat-label">Bahasa Situs</span>
+              <strong className="stat-value">2</strong>
+              <small>Indonesia & Inggris</small>
+            </div>
+          </div>
+          
           <section className="overview-quick">
             <h2>Pengelolaan</h2>
             <div className="quick-grid">

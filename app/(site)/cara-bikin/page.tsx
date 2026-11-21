@@ -18,7 +18,7 @@ interface RecipeCard {
 const recipeCards: RecipeCard[] = [
   {
     key: "tenggiri",
-    img: "/images/ikan.jpeg",
+    img: "/images/ikan1.jpeg",
     w: 554,
     h: 554,
     alt: "Ikan Tenggiri",
@@ -30,7 +30,7 @@ const recipeCards: RecipeCard[] = [
   },
   {
     key: "ayam",
-    img: "/images/ayam.jpeg",
+    img: "/images/ayam1.jpeg",
     w: 678,
     h: 452,
     alt: "Daging Ayam",
@@ -42,7 +42,7 @@ const recipeCards: RecipeCard[] = [
   },
   {
     key: "saus-kacang",
-    img: "/images/saos_kacang.jpeg",
+    img: "/images/saos_kacang1.jpeg",
     w: 584,
     h: 480,
     alt: "Saus Kacang",

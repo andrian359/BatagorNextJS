@@ -125,8 +125,8 @@
 }
 
 .preview-card {
-  background: var(--clr-card);
-  border: 1px solid var(--clr-border);
+  background: #f6e9d5;
+  border: 1px solid #e2cca8;
   border-radius: var(--radius-lg);
   padding: 1.25rem;
   cursor: pointer;
