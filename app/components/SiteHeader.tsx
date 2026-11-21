@@ -1,10 +1,10 @@
-
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { L, useLang } from "./LanguageProvider";
+import "./SiteHeader.css";
 
 const navLinks = [
   { href: "/", id: "Beranda", en: "Home" },

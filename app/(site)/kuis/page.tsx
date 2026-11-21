@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { L, useLang } from "../../components/LanguageProvider";
 import { useSavedQuestions } from "../../lib/store";
-import type { QuizQuestion } from "../../lib/data";
+import type { QuizQuestion } from "./data";
 
 const QUESTIONS_PER_ROUND = 2;
 

@@ -3,56 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { L, useLang } from "../../components/LanguageProvider";
-import { recipes, type Bi, type RecipeKey } from "../../lib/data";
-
-interface RecipeCard {
-  key: RecipeKey;
-  img: string;
-  w: number;
-  h: number;
-  alt: string;
-  title: Bi;
-  text: Bi;
-}
-
-const recipeCards: RecipeCard[] = [
-  {
-    key: "tenggiri",
-    img: "/images/ikan1.jpeg",
-    w: 554,
-    h: 554,
-    alt: "Ikan Tenggiri",
-    title: { id: "Resep Tenggiri", en: "Mackerel Recipe" },
-    text: {
-      id: "Isian klasik menggunakan ikan tenggiri segar.",
-      en: "The classic filling using fresh mackerel fish.",
-    },
-  },
-  {
-    key: "ayam",
-    img: "/images/ayam1.jpeg",
-    w: 678,
-    h: 452,
-    alt: "Daging Ayam",
-    title: { id: "Resep Ayam", en: "Chicken Recipe" },
-    text: {
-      id: "Alternatif isian tanpa ikan, cocok untuk yang tidak menyukai seafood.",
-      en: "A fish-free filling alternative, great for those who don't like seafood.",
-    },
-  },
-  {
-    key: "saus-kacang",
-    img: "/images/saos_kacang1.jpeg",
-    w: 584,
-    h: 480,
-    alt: "Saus Kacang",
-    title: { id: "Resep Saus Kacang", en: "Peanut Sauce Recipe" },
-    text: {
-      id: "Saus pelengkap wajib yang membuat Batagor semakin gurih dan nikmat.",
-      en: "The essential companion sauce that makes Batagor even more savory and delicious.",
-    },
-  },
-];
+import { recipeCards, recipes, type RecipeKey } from "./data";
 
 export default function CaraBikin() {
   const { lang } = useLang();

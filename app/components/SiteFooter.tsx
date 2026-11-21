@@ -1,3 +1,5 @@
+import "./SiteFooter.css";
+
 const footerLinks = [
   {
     href: "https://wa.me/6281234567890?text=Halo%20tim%20Batagor!",
